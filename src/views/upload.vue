@@ -40,6 +40,7 @@
         本页基于
         <img src="https://img.icons8.com/color/16/000000/vue-js.png" /> |
         <i class="el-icon-platform-eleme"></i>
+        | <a href="https://github.com/moreant/yeek-temp">查看源码</a>
       </p>
       <p>
         <a class="icon" href="https://icons8.com/icon/24465/swift"

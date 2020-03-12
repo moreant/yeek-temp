@@ -2,9 +2,21 @@
   <div class="main">
     <div>
       <img src="https://img.icons8.com/color/144/000000/swift.png" />
-      <h1>Swift 作业</h1>
-      <el-row type="flex" justify="center"
-        ><el-col :span="8">
+      <h1 class="mb">Swift 作业</h1>
+      <el-row type="flex" justify="center">
+        <el-col :span="20" :lg="4">
+          <el-progress
+            :text-inside="true"
+            :stroke-width="26"
+            :percentage="percentage"
+          ></el-progress>
+        </el-col>
+      </el-row>
+      <el-row class="mb" type="flex" justify="center">
+        <el-col :span="20" :lg="4"> {{ fileList.length }} / 100 </el-col>
+      </el-row>
+      <el-row class="mb" type="flex" justify="center">
+        <el-col :span="20" :lg="4">
           <el-upload
             action="api/post.php"
             :file-list="fileList"
@@ -57,6 +69,7 @@ export default {
   name: 'upload',
   data () {
     return {
+      percentage: 0,
       loading: false,
       fileList: []
     }
@@ -71,7 +84,11 @@ export default {
     },
     remove (file) {
       if (!file.raw) {
-        Notification({ title: '删除成功', message: '服务器文件不删除', type: 'success' })
+        Notification({
+          title: '删除成功',
+          message: '服务器文件不删除',
+          type: 'success'
+        })
       }
     },
     successHandle (response, file, fileList) {
@@ -91,6 +108,7 @@ export default {
       this.axios('api/get.php').then(response => {
         this.fileList = response.data
         this.loading = false
+        this.percentage = (response.data.length / 56) * 100 | 0
       })
     },
     check (file) {
@@ -119,6 +137,9 @@ h1 {
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
+}
+.mb {
+  margin-bottom: 24px;
 }
 </style>
 <style>

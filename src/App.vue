@@ -35,6 +35,7 @@
       <p>我也觉得丑，将就用一下吧</p>
       <a href="http://gd.beian.miit.gov.cn/">粤ICP备19003211号-1</a>
       | icon by <a target="_blank" href="https://icons8.cn">Icons8</a>
+      | <a target="_blank" href="https://github.com/moreant/yeek-temp">GitHub</a>
     </footer>
   </div>
 </template>
